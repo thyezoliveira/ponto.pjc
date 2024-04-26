@@ -1,1 +1,1 @@
-from .core_view import test_bp
+from .core_view import registro_bp

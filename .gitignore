@@ -1,0 +1,27 @@
+# Arquivos de byte compilado
+__pycache__/
+
+# Ambiente virtual
+venv/
+.env
+
+# Arquivos de log
+*.log
+
+# Arquivos de configuração local
+instance/
+
+# Arquivos de banco de dados
+*.sqlite
+*.db
+
+# Arquivos de saída do IDE/editor
+*.pyc
+*.pyo
+*.pyd
+
+# Arquivos de backup
+*~
+
+# Arquivos de dependências
+*.egg-info/

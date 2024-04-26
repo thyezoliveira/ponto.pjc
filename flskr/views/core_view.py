@@ -1,7 +1,12 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
+from .registro import registro_bp
+from .cabecalho import cabecalho_bp
 
-test_bp = Blueprint('test', __name__, url_prefix = '/test')
+app_bp = Blueprint('app', __name__, url_prefix = '/app', template_folder="templates")
 
-@test_bp.route("/nome")
-def nome():
-    return "Nome"
+app_bp.register_blueprint(registro_bp)
+app_bp.register_blueprint(cabecalho_bp)
+
+@app_bp.route("/")
+def ponto_app():
+    return render_template("index.html")
