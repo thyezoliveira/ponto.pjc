@@ -1,0 +1,14 @@
+{% extends 'index.html'%}
+
+{% block main %}
+<section class="configurarCabecalho">
+    <h2 class="configurarCabecalhoTitulo">
+        Configurar cabecalho
+    </h2>
+    
+    <form action="/app/cabecalho/salvar" method="get">
+        <input type="text" name="test" id="test" value="" />
+        <input type="submit" value="Enviar" />
+    </form>
+</section>
+{% endblock %}

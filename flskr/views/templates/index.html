@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ponto</title>
+    <title>Ponto 1.0-alpha</title>
 </head>
 <body>
-    <h1>ponto</h1>
+    <section id="ponto">
+        <p>Ponto 1.0-alpha</p>
+        <nav class="navegacao">
+            <p class="menuTitulo">Menu principal</p>
+            <ul class="listaItensMenu">
+                <li class="itemMenu">
+                    <a href="/app/cabecalho" class="botaoMenu">Configurar cabecalho</a>
+                </li>
+                <li class="listaItensMenu">
+                    <a href="/app/registro" class="botaoMenu">Registrar ponto</a>
+                </li>
+            </ul>
+        </nav>
+        {% block main %}{% endblock %}
+        <h2>Lista de registros</h2>
+        <ul>
+            <li><p>test</p></li>
+            <li><p>test</p></li>
+        </ul>
+    </section>
 </body>
 </html>

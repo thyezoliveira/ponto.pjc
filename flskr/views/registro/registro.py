@@ -1,7 +1,7 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
-registro_bp = Blueprint('registro', __name__, url_prefix = '/registro')
+registro_bp = Blueprint('registro', __name__, url_prefix = '/registro', template_folder='templates')
 
 @registro_bp.route("/")
 def registro_root():
-    return "Registro"
+    return render_template('registro.html')
