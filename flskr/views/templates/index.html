@@ -21,15 +21,18 @@
         </nav>
         {% block main %}{% endblock %}
         <h2>Cabecalho</h2>
-        <p>Estudante: {{configs["cbc_estudante"]}}</p>
-        <p>Matricula: {{configs["cbc_matricula"]}}</p>
-        <p>Curso: {{configs["cbc_curso"]}}</p>
-        <p>Periodo: {{configs["cbc_periodo"]}}</p>
-        <p>IES: {{configs["cbc_ies"]}}</p>
-        <p>Modalidade: {{configs["cbc_modalidade"]}}</p>
-        <p>Local de estágio: {{configs["cbc_local_estagio"]}}</p>
-        <p>Supervisor: {{configs["cbc_supervisor"]}}</p>
-        <p>Ano: {{configs["cbc_ano"]}}</p>
+        {% if configs %} 
+            <p>Estudante: {{configs["cbc_estudante"]}}</p>
+            <p>Matricula: {{configs["cbc_matricula"]}}</p>
+            <p>Curso: {{configs["cbc_curso"]}}</p>
+            <p>Periodo: {{configs["cbc_periodo"]}}</p>
+            <p>IES: {{configs["cbc_ies"]}}</p>
+            <p>Modalidade: {{configs["cbc_modalidade"]}}</p>
+            <p>Local de estágio: {{configs["cbc_local_estagio"]}}</p>
+            <p>Supervisor: {{configs["cbc_supervisor"]}}</p>
+            <p>Mes: {{configs["cbc_mes"]}}</p>
+            <p>Ano: {{configs["cbc_ano"]}}</p>
+        {% endif %}
         <h2>Lista de registros</h2>
         <ul>
             <li><p>test</p></li>

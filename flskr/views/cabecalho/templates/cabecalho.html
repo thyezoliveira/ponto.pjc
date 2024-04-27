@@ -1,14 +1,49 @@
 {% extends 'index.html'%}
 
 {% block main %}
+<style type="text/css" media="all">
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+</style>
 <section class="configurarCabecalho">
     <h2 class="configurarCabecalhoTitulo">
         Configurar cabecalho
     </h2>
     
     <form action="/app/cabecalho/salvar" method="post">
+        <label for="cbc_estudante">Estudante</label>
         <input type="text" name="cbc_estudante" id="cbc_estudante" value="{{configs['cbc_estudante']}}" />
-        <input type="submit" value="Enviar" />
+        
+        <label for="cbc_matricula">Matricula</label>
+        <input type="text" name="cbc_matricula" id="cbc_matricula" value="{{configs['cbc_matricula']}}" />
+        
+        <label for="cbc_curso">Curso</label>
+        <input type="text" name="cbc_curso" id="cbc_curso" value="{{configs['cbc_curso']}}" />
+        
+        <label for="cbc_periodo">Periodo</label>
+        <input type="text" name="cbc_periodo" id="cbc_periodo" value="{{configs['cbc_periodo']}}" />
+        
+        <label for="cbc_ies">Instituição de ensino superior</label>
+        <input type="text" name="cbc_ies" id="cbc_ies" value="{{configs['cbc_ies']}}" />
+        
+        <label for="cbc_modalidade">Modalidade</label>
+        <select name="cbc_modalidade" id="cbc_modalidade">
+            <option value="None" disabled selected> selecione a modalidade </option>
+            <option value="Presencial">Presencial</option>
+            <option value="EAD">EAD</option>
+        </select>
+        
+        <label for="cbc_local_estagio">Local de estágio</label>
+        <input type="text" name="cbc_local_estagio" id="cbc_local_estagio" value="{{configs['cbc_local_estagio']}}" />
+        
+        <label for="cbc_supervisor">Supervisor</label>
+        <input type="text" name="cbc_supervisor" id="cbc_supervisor" value="{{configs['cbc_supervisor']}}" />
+        
+        <input type="number" name="cbc_mes" id="cbc_mes" value="{{mes_atual}}" hidden/>
+        <input type="number" name="cbc_ano" id="cbc_ano" value="{{ano_atual}}" hidden/>
+        <input type="submit" value="Salvar mudanças" />
     </form>
 </section>
 {% endblock %}

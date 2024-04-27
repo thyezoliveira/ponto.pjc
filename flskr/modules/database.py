@@ -32,6 +32,7 @@ class Database:
         session = sessionmaker(bind=self.engine)()
         db_configs = session.query(Cabecalho_configs).first()
         configuracao = {
+            "cbc_id":db_configs.cbc_id,
             "cbc_estudante":db_configs.cbc_estudante,
             "cbc_matricula": db_configs.cbc_matricula,
             "cbc_curso":db_configs.cbc_curso,
@@ -39,15 +40,29 @@ class Database:
             "cbc_ies":db_configs.cbc_ies,
             "cbc_modalidade":db_configs.cbc_modalidade,
             "cbc_local_estagio":db_configs.cbc_local_estagio,
-            "cbc_supervisor"db_configs.cbc_supervisor,
+            "cbc_supervisor":db_configs.cbc_supervisor,
+            "cbc_mes":db_configs.cbc_mes,
             "cbc_ano":db_configs.cbc_ano
         }
         return configuracao
     
-    def definir_configuracoes(self, **kwargs) -> None:
-        nome = kwargs['nome']
+    def definir_configuracoes(self, cbc_id:int, **kwargs) -> None:
+        session = sessionmaker(bind=self.engine)()
+        configs = session.query(Cabecalho_configs).filter_by(cbc_id=cbc_id).first()
+        configs.cbc_estudante = kwargs['cbc_estudante']
+        configs.cbc_matricula = kwargs['cbc_matricula']
+        configs.cbc_curso = kwargs['cbc_curso']
+        configs.cbc_periodo = kwargs['cbc_periodo']
+        configs.cbc_ies = kwargs['cbc_ies']
+        configs.cbc_modalidade = kwargs['cbc_modalidade']
+        configs.cbc_local_estagio = kwargs['cbc_local_estagio']
+        configs.cbc_supervisor = kwargs['cbc_supervisor']
+        configs.cbc_mes = kwargs['cbc_mes']
+        configs.cbc_ano = kwargs['cbc_ano']
+        session.commit()
+        session.close()
         
-        return {"msg":"As novas configuracoes foram registradas."}
+        return {"msg":f"As novas configuracoes foram registradas. Para o id {cbc_id}"}
     
     def resetar_configuracoes(self) -> None:
         pass
