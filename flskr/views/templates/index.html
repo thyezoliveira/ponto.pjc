@@ -34,10 +34,28 @@
             <p>Ano: {{configs["cbc_ano"]}}</p>
         {% endif %}
         <h2>Lista de registros</h2>
-        <ul>
-            <li><p>test</p></li>
-            <li><p>test</p></li>
-        </ul>
+        <table>
+          <thead>
+            <td>ID</td>
+            <td>DT</td>
+            <td>Entrada</td>
+            <td>Intervalo</td>
+            <td>Saida</td>
+            <td>CC</td>
+            <td>Atividade</td>
+          </thead>
+          {% for reg in registros["list"] %}
+          <tr>
+            <td>{{reg["reg_id"]}}</td>
+            <td>{{reg["reg_data"]}}</td>
+            <td>{{reg["reg_entrada"]}}</td>
+            <td>{{reg["reg_intervalo"]}}</td>
+            <td>{{reg["reg_saida"]}}</td>
+            <td>{{reg["reg_carga_cumprida"]}}</td>
+            <td>{{reg["reg_atividade"]}}</td>
+          </tr>
+          {% endfor %}>
+        </table>
     </section>
 </body>
 </html>

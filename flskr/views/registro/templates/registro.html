@@ -1,9 +1,48 @@
 {% extends 'index.html'%}
 
 {% block main %}
+<style>
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form > div.inputBox{
+    display: flex;
+    flex-direction: column;
+  }
+</style>
 <section class="registrarPonto">
     <h2 class="registrarPontoTitulo">
         Registrar ponto
     </h2>
+    
+    <form action="/app/registro/salvar" method="post">
+      <div class="inputBox">
+        <label for="reg_data">Data</label>
+          <select name="reg_data" id="reg_data">
+            {% for data in dias_do_mes %}
+              <option value="{{data}}">{{data}}</option>
+            {% endfor %}
+          </select>
+      </div>
+      <div class="inputBox">
+        <label for="reg_entrada">Entrada</label>
+        <input type="text" name="reg_entrada" id="reg_entrada">
+      </div>
+      <!-- <div class="inputBox">
+        <label for="reg_intervalo">Intervalo</label>
+        <input type="text" name="reg_intervalo" id="reg_intervalo">
+      </div> -->
+      <div class="inputBox">
+        <label for="reg_saida">Saida</label>
+        <input type="text" name="reg_saida" id="reg_saida">
+      </div>
+      <div class="inputBox">
+        <label for="reg_atividade">Atividade</label>
+        <input type="text" name="reg_atividade" id="reg_atividade">
+      </div>
+      <input type="submit" value="Registrar ponto">
+    </form>
 </section>
 {% endblock %}

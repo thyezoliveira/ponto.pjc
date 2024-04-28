@@ -26,3 +26,12 @@ class Utils:
         agora = datetime.now()
         mes = agora.month
         return mes
+        
+    def obter_lista_de_dias(self):
+      dias = []
+      for i in range(1, 31):
+        dias.append(i)
+      return dias
+      
+    def formatar_horario(self):
+      pass
