@@ -13,8 +13,7 @@ def registro_root():
   res = db.obter_configuracoes()
   registros = db.obter_todos_os_registros()
   for reg in registros['list']:
-    current_reg_entrada = reg['reg_entrada']
-    reg['reg_entrada'] = str(current_reg_entrada).zfill(4)[:2]+":"+str(current_reg_entrada).zfill(4)[2:]
+    utils.formatar_horario(reg, reg['reg_entrada'])
   return render_template('registro.html', configs=res, registros=registros, dias_do_mes=dias_do_mes)
 
 @registro_bp.post("/salvar")

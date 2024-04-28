@@ -33,5 +33,5 @@ class Utils:
         dias.append(i)
       return dias
       
-    def formatar_horario(self):
-      pass
+    def formatar_horario(self, reg:dict, current_reg_entrada:str):
+      reg['reg_entrada'] = str(current_reg_entrada).zfill(4)[:2]+":"+str(current_reg_entrada).zfill(4)[2:]
